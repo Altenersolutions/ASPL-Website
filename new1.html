@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Altener Solutions Pvt Ltd</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#0a0f0e;
+color:#1c1c1c;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+position:fixed;
+width:100%;
+background:rgba(10,15,14,0.85);
+backdrop-filter:blur(8px);
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+}
+
+.logo{
+font-weight:700;
+font-size:20px;
+color:white;
+cursor:pointer;
+background:none;
+border:none;
+}
+
+.logo:focus-visible,
+.nav-links a:focus-visible,
+.hero button:focus-visible,
+form button:focus-visible{
+outline:2px solid #00c2a8;
+outline-offset:3px;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+flex-wrap:wrap;
+row-gap:8px;
+}
+
+.nav-links a{
+margin-left:25px;
+text-decoration:none;
+color:white;
+font-weight:500;
+}
+
+.nav-links a:hover{
+color:#00c2a8;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:0 20px;
+background:
+radial-gradient(circle at 30% 40%, rgba(0,194,168,0.15), transparent 40%),
+radial-gradient(circle at 70% 60%, rgba(0,194,168,0.1), transparent 50%),
+linear-gradient(135deg, #0a0f0e 0%, #0f2f28 100%);
+position:relative;
+overflow:hidden;
+}
+
+/* Moving electric streak */
+
+.hero::after{
+content:"";
+position:absolute;
+width:200%;
+height:2px;
+background:linear-gradient(to right, transparent, #00c2a8, transparent);
+top:65%;
+left:-50%;
+opacity:0.4;
+animation:moveLight 6s linear infinite;
+}
+
+@keyframes moveLight{
+0%{transform:translateX(0);}
+100%{transform:translateX(50%);}
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero h2{
+font-size:20px;
+font-weight:400;
+margin-bottom:30px;
+color:#cfe9e4;
+}
+
+.hero button{
+padding:12px 28px;
+border:none;
+border-radius:4px;
+font-weight:500;
+margin:5px;
+cursor:pointer;
+}
+
+.primary-btn{
+background:#00c2a8;
+color:white;
+}
+
+.primary-btn:hover{
+background:#00a896;
+}
+
+.secondary-btn{
+background:transparent;
+border:1px solid white;
+color:white;
+}
+
+.secondary-btn:hover{
+background:white;
+color:#0a0f0e;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+padding:100px 8%;
+scroll-margin-top:90px;
+}
+
+.light-section{
+background:#f2f5f4;
+color:#1c1c1c;
+}
+
+.soft-section{
+background:#e6eeeb;
+color:#1c1c1c;
+}
+
+.dark-section{
+background:#0f2f28;
+color:white;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+font-size:30px;
+}
+
+.dark-section .section-title{
+color:white;
+}
+
+/* GRID */
+
+.grid-3{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.box{
+padding:30px;
+border-radius:8px;
+}
+
+.light-section .box,
+.soft-section .box{
+background:white;
+box-shadow:0 6px 18px rgba(0,0,0,0.05);
+}
+
+.dark-section .box{
+background:#123c34;
+}
+
+/* PRODUCTS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.product-card{
+padding:30px;
+border-radius:8px;
+}
+
+.light-section .product-card{
+background:white;
+box-shadow:0 6px 18px rgba(0,0,0,0.05);
+}
+
+/* ABOUT */
+
+.about p{
+max-width:850px;
+margin:0 auto 15px auto;
+text-align:center;
+}
+
+/* CONTACT */
+
+.sr-only{
+position:absolute;
+width:1px;
+height:1px;
+padding:0;
+margin:-1px;
+overflow:hidden;
+clip:rect(0,0,0,0);
+white-space:nowrap;
+border:0;
+}
+
+form{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+}
+
+form input,form select,form textarea{
+margin-bottom:15px;
+padding:12px;
+border:1px solid #cfd8d5;
+border-radius:4px;
+}
+
+form button{
+padding:12px;
+border:none;
+background:#00c2a8;
+color:white;
+cursor:pointer;
+border-radius:4px;
+}
+
+form button:hover{
+background:#00a896;
+}
+
+/* FOOTER */
+
+footer{
+background:#061612;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+.hero h1{font-size:32px;}
+.navbar{
+padding:14px 5%;
+align-items:flex-start;
+}
+.nav-links a{
+margin-left:12px;
+font-size:14px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<button class="logo" type="button" onclick="scrollHome()" aria-label="Go to home section">ASPL</button>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#focus">Focus</a>
+<a href="#why">Why</a>
+<a href="#technology">Technology</a>
+<a href="#products">Vehicles</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+
+<section class="hero" id="home">
+<div>
+<h1>Altener Solutions Pvt Ltd</h1>
+<h2>Redefining Last-Mile Commercial Transport</h2>
+<button class="primary-btn" onclick="scrollContact()">Enquire Now</button>
+<button class="secondary-btn" onclick="dealerSelect()">Become Dealer</button>
+</div>
+</section>
+
+<section id="about" class="light-section">
+<h2 class="section-title">About Us</h2>
+<div class="about">
+<p>Altener Solutions Pvt Ltd builds dependable electric mobility solutions tailored for India's evolving commercial ecosystem.</p>
+<p><strong>Mission:</strong> Enable sustainable and reliable last-mile transport.</p>
+<p><strong>Vision:</strong> Empower entrepreneurs through future-ready electric mobility.</p>
+<p>For daily earners and aspiring business owners, owning a commercial vehicle means independence and growth. We aim to make that transition practical and profitable.</p>
+</div>
+</section>
+
+<section id="focus" class="dark-section">
+<h2 class="section-title">Our Focus</h2>
+<div class="grid-3">
+<div class="box">
+<h4>Electric Commercial Mobility</h4>
+<p>Efficient and reliable EV platforms for commercial usage.</p>
+</div>
+<div class="box">
+<h4>In-House Engineering</h4>
+<p>Integrated development ensuring long-term reliability.</p>
+</div>
+<div class="box">
+<h4>Entrepreneur-Centric Design</h4>
+<p>Built around ownership value and operational efficiency.</p>
+</div>
+</div>
+</section>
+
+<section id="why" class="soft-section">
+<h2 class="section-title">Why Altener</h2>
+<div class="grid-3">
+<div class="box">
+<h4>Designed for Indian Roads</h4>
+<p>Built to withstand demanding commercial conditions.</p>
+</div>
+<div class="box">
+<h4>Built for Entrepreneurs</h4>
+<p>Focused on long-term earning stability.</p>
+</div>
+<div class="box">
+<h4>Made in India</h4>
+<p>Core systems developed domestically.</p>
+</div>
+</div>
+</section>
+
+<section id="technology" class="dark-section">
+<h2 class="section-title">Technology Approach</h2>
+<div class="grid-3">
+<div class="box">
+<h4>Advanced EV Architecture</h4>
+<p>Integrated and optimized electric systems.</p>
+</div>
+<div class="box">
+<h4>Battery & Powertrain Integration</h4>
+<p>Engineered for consistent performance.</p>
+</div>
+<div class="box">
+<h4>Future-Ready Systems</h4>
+<p>Designed for evolving mobility standards.</p>
+</div>
+</div>
+</section>
+
+<section id="products" class="light-section">
+<h2 class="section-title">Vehicles Under Validation</h2>
+<div class="products">
+<div class="product-card">
+<h3>Buzz</h3>
+<p>Urban commercial EV engineered for daily operations.</p>
+</div>
+<div class="product-card">
+<h3>Lite</h3>
+<p>Compact EV built for practical commercial mobility.</p>
+</div>
+</div>
+</section>
+
+<section id="contact" class="soft-section">
+<h2 class="section-title">Enquiry</h2>
+<form id="enquiryForm">
+<label class="sr-only" for="fullName">Full Name</label>
+<input id="fullName" name="fullName" type="text" placeholder="Full Name" required>
+<label class="sr-only" for="phoneNumber">Phone Number</label>
+<input id="phoneNumber" name="phoneNumber" type="tel" placeholder="Phone Number" required>
+<label class="sr-only" for="city">City</label>
+<input id="city" name="city" type="text" placeholder="City" required>
+<label class="sr-only" for="purpose">Purpose</label>
+<select id="purpose" name="purpose">
+<option>Interested in Buying</option>
+<option>Dealership Enquiry</option>
+<option>Fleet Partnership</option>
+</select>
+<label class="sr-only" for="message">Message</label>
+<textarea id="message" name="message" rows="4" placeholder="Message"></textarea>
+<button type="submit">Submit Enquiry</button>
+</form>
+</section>
+
+<footer>
+Altener Solutions Pvt Ltd | Bangalore, Karnataka, India
+</footer>
+
+<script>
+function scrollHome(){
+document.getElementById("home").scrollIntoView();
+}
+function scrollContact(){
+document.getElementById("contact").scrollIntoView();
+}
+function dealerSelect(){
+document.getElementById("contact").scrollIntoView();
+document.getElementById("purpose").value="Dealership Enquiry";
+}
+document.getElementById("enquiryForm").addEventListener("submit", function(event){
+event.preventDefault();
+alert("Thank you. Your enquiry has been received.");
+});
+</script>
+
+</body>
+</html>

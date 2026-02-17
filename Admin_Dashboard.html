@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | Dealer Inquiries</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 text-white">
+
+<header class="bg-black p-4 flex justify-between">
+<h1 class="text-xl font-semibold text-green-400">Admin Dashboard</h1>
+<a href="index.html" class="text-blue-400">Back to Website</a>
+</header>
+
+<section class="p-6">
+<h2 class="text-2xl font-semibold mb-6 text-green-400">Dealer Inquiries</h2>
+
+<div class="overflow-x-auto">
+<table class="min-w-full bg-slate-800 rounded-lg overflow-hidden">
+<thead class="bg-slate-700">
+<tr>
+<th class="p-3 text-left">Name</th>
+<th class="p-3 text-left">Email</th>
+<th class="p-3 text-left">Phone</th>
+<th class="p-3 text-left">Message</th>
+<th class="p-3 text-left">Date</th>
+</tr>
+</thead>
+<tbody id="inquiryTable" class="text-gray-300"></tbody>
+</table>
+</div>
+
+<button onclick="clearData()"
+class="mt-6 bg-red-500 px-4 py-2 rounded hover:bg-red-600">
+Clear All Inquiries
+</button>
+
+</section>
+
+<script>
+function loadInquiries(){
+let inquiries = JSON.parse(localStorage.getItem("inquiries")) || [];
+let table = document.getElementById("inquiryTable");
+table.innerHTML = "";
+
+inquiries.forEach(data => {
+let row = `
+<tr class="border-b border-slate-700">
+<td class="p-3">${data.name}</td>
+<td class="p-3">${data.email}</td>
+<td class="p-3">${data.phone}</td>
+<td class="p-3">${data.message}</td>
+<td class="p-3">${data.date}</td>
+</tr>
+`;
+table.innerHTML += row;
+});
+}
+
+function clearData(){
+localStorage.removeItem("inquiries");
+loadInquiries();
+}
+
+loadInquiries();
+</script>
+
+</body>
+</html>
